@@ -1,24 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/gmac220/go-vend/vend"
+)
 
 func main() {
-	var cewmachine = machine{
-		model: "18239342",
-		address: address{
-			street: "101 Mitchell St",
-			city:   "Arlington",
-			state:  "TX",
-			zip:    "76010",
-		},
-		capacity: 100,
+	var cewmachine = vend.Machine{
+		Model:    "18239342",
+		Address:  vend.NewAddress("101 Mitchell St", "Arlington", "TX", "76010"),
+		Capacity: 100,
 	}
 
 	//fmt.Println(cewmachine)
 	// fmt.Println("Capacity:", cewmachine.capacity)
 
-	var p printer = cewmachine
-	var a printer = cewmachine.address
+	var p vend.Printer = cewmachine
 	fmt.Println(p)
-	fmt.Println(a)
 }
